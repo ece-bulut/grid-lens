@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-ink: #090a0f;
+
+  /* Telemetry series: identity carried by lightness + dash pattern, not hue alone */
+  --color-series-actual: #f4f4f5;
+  --color-series-forecast: #06b6d4;
+  --color-series-plan: #71717a;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* Smooth scrolling is handled by Lenis; native smooth behavior would fight it. */
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-ink text-zinc-100 antialiased;
+}
+
+::selection {
+  @apply bg-cyan-400/25 text-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
